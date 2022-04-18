@@ -1,6 +1,6 @@
 {
   "name": "@baurine/sql-formatter-plus",
-  "version": "1.5.0",
+  "version": "1.5.2",
   "description": "Formats whitespace in a SQL query to make it more readable",
   "license": "MIT",
   "main": "dist/index.js",
