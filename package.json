@@ -1,9 +1,9 @@
 {
-  "name": "sql-formatter-plus-plus",
-  "version": "1.4.0",
+  "name": "@baurine/sql-formatter-plus",
+  "version": "1.5.2",
   "description": "Formats whitespace in a SQL query to make it more readable",
   "license": "MIT",
-  "main": "lib/sqlFormatter.js",
+  "main": "dist/index.js",
   "keywords": [
     "sql",
     "formatter",
@@ -14,7 +14,8 @@
   "authors": [
     "Rene Saarsoo",
     "Uku Pattak",
-    "TennyZhuang"
+    "TennyZhuang",
+    "baurine"
   ],
   "files": [
     "dist",
@@ -23,13 +24,14 @@
   ],
   "scripts": {
     "clean": "rimraf lib dist",
-    "lint": "eslint .",
+    "lint": "eslint src",
     "format": "prettier --write \"**/*.{js,jsx,md,json,css,html,prettierrc,eslintrc,babelrc}\"",
     "check:format": "prettier --check \"**/*.{js,jsx,md,json,css,html,prettierrc,eslintrc,babelrc}\"",
     "test": "jest",
     "test:watch": "npm run test -- --watch",
     "check": "npm run lint && npm run check:format && npm run test",
-    "build": "npm run build:commonjs && npm run build:umd && npm run build:umd:min",
+    "cp:entry": "cp npm/index.js dist",
+    "build": "npm run build:commonjs && npm run build:umd && npm run build:umd:min && npm run cp:entry",
     "build:commonjs": "babel src --out-dir lib",
     "build:umd": "webpack --mode development src/sqlFormatter.js --output dist/sql-formatter.js",
     "build:umd:min": "webpack --mode production src/sqlFormatter.js --output dist/sql-formatter.min.js",
@@ -37,10 +39,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kufii/sql-formatter-plus.git"
-  },
-  "bugs": {
-    "url": "https://github.com/kufii/sql-formatter-plus/issues"
+    "url": "https://github.com/baurine/sql-formatter-plus.git"
   },
   "dependencies": {
     "@babel/polyfill": "^7.7.0",

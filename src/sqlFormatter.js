@@ -1,6 +1,7 @@
 import Db2Formatter from './languages/Db2Formatter';
 import N1qlFormatter from './languages/N1qlFormatter';
 import PlSqlFormatter from './languages/PlSqlFormatter';
+import TiDBSqlFormatter from './languages/TiDBSqlFormatter';
 import StandardSqlFormatter from './languages/StandardSqlFormatter';
 
 /**
@@ -23,6 +24,8 @@ export const format = (query, cfg = {}) => {
       return new N1qlFormatter(cfg).format(query);
     case 'pl/sql':
       return new PlSqlFormatter(cfg).format(query);
+    case 'tidb':
+      return new TiDBSqlFormatter(cfg).format(query);
     case 'sql':
     case undefined:
       return new StandardSqlFormatter(cfg).format(query);
